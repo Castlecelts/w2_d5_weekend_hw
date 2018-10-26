@@ -69,9 +69,29 @@ class TestRoom < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  # def test_room_can_add_song_to_playlist
+  def test_size_of_room_playlist
+    expected = 0
+    actual = @room1.size_of_playlist
+    assert_equal(expected, actual)
+  end
 
 
+
+  def test_room_can_add_song_to_playlist
+    expected = 1
+    @room1.add_to_playlist(@song1)
+    actual = @room1.size_of_playlist
+    assert_equal(expected, actual)
+  end
+
+  def test_size_of_room_playlist__non_0
+    expected = 3
+    @room1.add_to_playlist(@song1)
+    @room1.add_to_playlist(@song1)
+    @room1.add_to_playlist(@song1)
+    actual = @room1.size_of_playlist
+    assert_equal(expected, actual)
+  end
 
 
 

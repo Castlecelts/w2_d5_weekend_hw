@@ -32,6 +32,15 @@ class Room
     @songlist.find_by_artist(artist)
   end
 
+  def size_of_playlist
+    @playlist.count
+  end
+
+  def add_to_playlist(song)
+    @playlist << song
+    return @playlist
+  end
+
 
 
 
