@@ -20,4 +20,9 @@ class Club
     room.add_guest(guest)
   end
 
+  def remove_guest(room, guest)
+    room.delete_guest(guest)
+  end
+
+
 end#of class

@@ -50,6 +50,10 @@ class Room
     @current_guests << name
   end
 
+  def delete_guest(name)
+    @current_guests.delete_if{ |guest| guest == name}
+  end
+
 
 
 end #of class
