@@ -9,6 +9,7 @@ class Room
     @capacity = capacity
     @songlist = songlist
     @playlist = []
+    @current_guests = []
   end
 
 
@@ -39,6 +40,10 @@ class Room
   def add_to_playlist(song)
     @playlist << song
     return @playlist
+  end
+
+  def number_of_guests
+    @current_guests.count
   end
 
 

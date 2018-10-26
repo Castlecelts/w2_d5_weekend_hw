@@ -93,7 +93,11 @@ class TestRoom < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-
+  def test_number_of_guests_in_room
+    expected = 0
+    actual = @room1.number_of_guests
+    assert_equal(expected, actual)
+  end
 
 
 end#of class
