@@ -10,13 +10,13 @@ require_relative ('../song')
 class TestSonglist < MiniTest::Test
 
   def setup
-    song1 = Song.new(
+    @song1 = Song.new(
       :title => "Everybody (Backstreet's Back)",
       :artist => " The Backstreet Boys")
-    song2 = Song.new(
+    @song2 = Song.new(
       :title => "Men in Black",
       :artist => "Will Smith")
-    @songs = [song1, song2]
+    @songs = [@song1, @song2]
 
     @songlist1 = Songlist.new(@songs)
   end
@@ -39,6 +39,17 @@ class TestSonglist < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_songlist_can_find_all_songs__by_title
+    expected = [@song1]
+    actual = @songlist1.find_by_title("Everybody (Backstreet's Back)")
+    assert_equal(expected, actual)
+  end
+
+    def test_songlist_can_find_all_songs__by_artist
+      expected = [@song2]
+      actual = @songlist1.find_by_artist("Will Smith")
+      assert_equal(expected, actual)
+    end
 
 
 
