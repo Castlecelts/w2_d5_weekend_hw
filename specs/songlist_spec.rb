@@ -27,9 +27,15 @@ class TestSonglist < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_songlist_returns_all_songs_in_array
+  def test_songlist_returns_all_song_titles_in_array
     expected = ["Everybody (Backstreet's Back)", "Men in Black"]
     actual = @songlist1.list_song_titles
+    assert_equal(expected, actual)
+  end
+
+  def test_songlist_returns_all_song_artists_in_array
+    expected = [" The Backstreet Boys", "Will Smith"]
+    actual = @songlist1.list_song_artists
     assert_equal(expected, actual)
   end
 

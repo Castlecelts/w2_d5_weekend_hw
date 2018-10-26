@@ -33,5 +33,47 @@ class TestRoom < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_room_has_a_capacity
+    expected = 10
+    actual = @room1.capacity
+    assert_equal(expected, actual)
+  end
+
+  def test_room_has_a_songlist
+    expected = @songs
+    actual = @room1.available_songs
+    assert_equal(expected, actual)
+  end
+
+  def test_room_has_songs__by_title
+    expected = ["Everybody (Backstreet's Back)", "Men in Black"]
+    actual = @room1.available_by_titles
+    assert_equal(expected, actual)
+  end
+
+  def test_room_has_songs__by_artist
+    expected = [" The Backstreet Boys", "Will Smith"]
+    actual = @room1.available_by_artists
+    assert_equal(expected, actual)
+  end
+
+  def test_room_can_find_all_song__by_title
+    expected = [@song1]
+    actual = @room1.search_by_title("Everybody (Backstreet's Back)")
+    assert_equal(expected, actual)
+  end
+
+  def test_room_can_find_all_songs__by_artist
+    expected = [@song2]
+    actual = @room1.search_by_artist("Will Smith")
+    assert_equal(expected, actual)
+  end
+
+  # def test_room_can_add_song_to_playlist
+
+
+
+
+
 
 end#of class
