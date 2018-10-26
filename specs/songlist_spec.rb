@@ -45,11 +45,11 @@ class TestSonglist < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-    def test_songlist_can_find_all_songs__by_artist
-      expected = [@song2]
-      actual = @songlist1.find_by_artist("Will Smith")
-      assert_equal(expected, actual)
-    end
+  def test_songlist_can_find_all_songs__by_artist
+    expected = [@song2]
+    actual = @songlist1.find_by_artist("Will Smith")
+    assert_equal(expected, actual)
+  end
 
 
 
