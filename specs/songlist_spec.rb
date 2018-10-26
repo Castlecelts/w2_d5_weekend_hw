@@ -16,9 +16,9 @@ class TestSonglist < MiniTest::Test
     song2 = Song.new(
       :title => "Men in Black",
       :artist => "Will Smith")
-    songs = [song1, song2]
+    @songs = [song1, song2]
 
-    @songlist1 = Songlist.new(songs)
+    @songlist1 = Songlist.new(@songs)
   end
 
   def test_songlist_returns_number_of_songs
@@ -27,12 +27,17 @@ class TestSonglist < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_songlist_returns_all_songs_in_list
+  def test_songlist_returns_all_songs_in_array
     expected = ["Everybody (Backstreet's Back)", "Men in Black"]
     actual = @songlist1.list_song_titles
     assert_equal(expected, actual)
   end
 
+  def test_songlist_returns_array_of_titles_with_artist
+    expected = @songs
+    actual = @songlist1.list_all_songs
+    assert_equal(expected, actual)
+  end
 
 
 
