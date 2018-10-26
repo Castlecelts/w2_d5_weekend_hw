@@ -46,6 +46,9 @@ class Room
     @current_guests.count
   end
 
+  def add_guest(name)
+    @current_guests << name
+  end
 
 
 

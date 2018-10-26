@@ -39,13 +39,35 @@ class TestClub < MiniTest::Test
     @club = Club.new(@club_name, @location, @building_structure )
   end
 
-  def test_club_has_a_club_name
+  def test_club_has_a_name
     expected = "Cheesy Mic Karaoke"
     actual = @club.name
     assert_equal(expected, actual)
   end
 
+  def test_club_has_a_location
+    expected = "Prince's Street"
+    actual = @club.location
+    assert_equal(expected, actual)
+  end
 
+  def test_size_of_club
+    expected = 2
+    actual = @club.building_size
+    assert_equal(expected, actual)
+  end
 
+  def test_number_of_guests_in_specific_room
+    expected = 0
+    actual = @club.guest_count(@room1)
+    assert_equal(expected, actual)
+  end
+
+  def test_add_guest_to_specific_room
+    expected = 1
+    @club.accept_guest(@room1, @guest1)
+    actual =@club.guest_count(@room1)
+    assert_equal(expected, actual)
+  end
 
 end#of class

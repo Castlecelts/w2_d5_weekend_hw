@@ -4,6 +4,8 @@ require ('minitest/rg')
 require_relative('../room')
 require_relative('../songlist')
 require_relative('../song')
+require_relative('../guest')
+
 
 class TestRoom < MiniTest::Test
 
@@ -22,6 +24,8 @@ class TestRoom < MiniTest::Test
     @room_name1 = "90's Pop"
 
     # @playlist1 = [] not needed currently always empty
+    @guest1 = Guest.new("James")
+
 
     @room1 = Room.new(@room_name1, @capacity, @songlist1)
 
@@ -75,8 +79,6 @@ class TestRoom < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-
-
   def test_room_can_add_song_to_playlist
     expected = 1
     @room1.add_to_playlist(@song1)
@@ -97,6 +99,12 @@ class TestRoom < MiniTest::Test
     expected = 0
     actual = @room1.number_of_guests
     assert_equal(expected, actual)
+  end
+
+  def test_add_guest_to_room
+    expected = 1
+    @room1.add_guest(@guest1)
+    actual = @room1.number_of_guests
   end
 
 
