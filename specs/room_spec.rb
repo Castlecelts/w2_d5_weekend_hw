@@ -107,5 +107,13 @@ class TestRoom < MiniTest::Test
     actual = @room1.number_of_guests
   end
 
+  def test_delete_guest_from_room
+    expected = 1
+    @room1.add_guest(@guest1)
+    @room1.add_guest(@guest2)
+    @room1.delete_guest(@guest1)
+    actual = @room1.number_of_guests
+  end
+
 
 end#of class

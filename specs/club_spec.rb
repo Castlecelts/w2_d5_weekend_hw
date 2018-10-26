@@ -70,4 +70,13 @@ class TestClub < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_remove_guest_from_specific_room
+    expected = 1
+    @club.accept_guest(@room1, @guest1)
+    @club.accept_guest(@room1, @guest2)
+    @club.remove_guest(@room1, @guest1)
+    actual = @club.guest_count(@room1)
+    assert_equal(expected, actual)
+  end
+
 end#of class
