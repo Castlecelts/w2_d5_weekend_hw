@@ -13,7 +13,7 @@ class Songlist
      return titles
   end
 
-  def list_song_artist
+  def list_song_artists
     artists = @songlist.map{ |song| song.artist}
     return artists
   end
