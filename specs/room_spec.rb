@@ -1,6 +1,8 @@
 require ('MiniTest/autorun')
 require ('minitest/rg')
 
+require ('pry')
+
 require_relative('../room')
 require_relative('../songlist')
 require_relative('../song')
@@ -16,6 +18,9 @@ class TestRoom < MiniTest::Test
     @song2 = Song.new(
       :title => "Men in Black",
       :artist => "Will Smith")
+    @song3 = Song.new(
+      :title => "Barbie Girl",
+      :artist => "Aqua")
     @songs = [@song1, @song2]
 
     @songlist1 = Songlist.new(@songs)
@@ -26,6 +31,7 @@ class TestRoom < MiniTest::Test
     # @playlist1 = [] not needed currently always empty
     @guest1 = Guest.new("James", 50, @song1)
     @guest2 = Guest.new("Alex", 8, @song2)
+    @guest3 = Guest.new("Craig", 10, @song3)
 
     @room1 = Room.new(@room_name1, @capacity, @songlist1)
 
@@ -115,5 +121,17 @@ class TestRoom < MiniTest::Test
     actual = @room1.number_of_guests
   end
 
+  def test_if_guest_is_happy
+    expected = "Woo Woo, love this one"
+    @room1.add_guest(@guest1)
+    actual = @room1.guest_happiness(@guest1)
+    assert_equal(expected, actual)
+  end
 
+  def test_if_guest_is_sad
+    expected = "Gutted!"
+    @room1.add_guest(@guest3)
+    actual = @room1.guest_happiness(@guest3)
+    assert_equal(expected, actual)
+  end
 end#of class

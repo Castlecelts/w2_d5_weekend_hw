@@ -33,5 +33,11 @@ class Songlist
     return song_match
   end
 
+  def find_by_song(wanted_song)
+    song_match = @songlist.find{ |song| song == wanted_song}
+    return song_match
+  end
+
+
 
 end #of class

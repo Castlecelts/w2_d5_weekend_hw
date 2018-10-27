@@ -57,6 +57,11 @@ class TestSonglist < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_songlist_can_find_all_songs__by_song
+    expected = @song2
+    actual = @songlist1.find_by_song(@song2)
+    assert_equal(expected, actual)
+  end
 
 
 

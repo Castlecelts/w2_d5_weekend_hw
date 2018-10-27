@@ -54,6 +54,17 @@ class Room
     @current_guests.delete_if{ |guest| guest == name}
   end
 
+  def guest_happiness(specific_guest)
+    song_of_guest = specific_guest.fav_song
+    for guest in @current_guests
+      if guest == specific_guest && specific_guest.fav_song == @songlist.find_by_song(song_of_guest)
+        return specific_guest.excitment(song_of_guest)
+      else
+        return "Gutted!"
+      end
+    end
+  end
+
 
 
 end #of class
