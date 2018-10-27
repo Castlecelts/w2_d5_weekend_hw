@@ -35,6 +35,7 @@ class TestClub < MiniTest::Test
 
     @guest1 = Guest.new("James")
     @guest2 = Guest.new("Alex")
+    @guest3 = Guest.new("Craig")
 
     @club = Club.new(@club_name, @location, @building_structure )
   end
@@ -76,6 +77,14 @@ class TestClub < MiniTest::Test
     @club.accept_guest(@room1, @guest2)
     @club.remove_guest(@room1, @guest1)
     actual = @club.guest_count(@room1)
+    assert_equal(expected, actual)
+  end
+
+  def test_room_is_too_full_for_more_guests
+    expected = "Room is full"
+    @club.accept_guest(@room2, @guest1)
+    @club.accept_guest(@room2, @guest2)
+    actual = @club.accept_guest(@room2, @guest3)
     assert_equal(expected, actual)
   end
 

@@ -17,7 +17,14 @@ class Club
   end
 
   def accept_guest(room, guest)
-    room.add_guest(guest)
+    if room.number_of_guests >= room.capacity
+      return "Room is full"
+    else
+
+    # room.number_of_guests <= room.capacity ?
+     room.add_guest(guest)
+     # : p "Room is full"
+   end
   end
 
   def remove_guest(room, guest)
