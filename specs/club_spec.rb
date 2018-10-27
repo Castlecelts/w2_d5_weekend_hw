@@ -33,9 +33,9 @@ class TestClub < MiniTest::Test
     @location = "Prince's Street"
     @club_name = "Cheesy Mic Karaoke"
 
-    @guest1 = Guest.new("James", 50)
-    @guest2 = Guest.new("Alex", 8)
-    @guest3 = Guest.new("Craig", 10)
+    @guest1 = Guest.new("James", 50, @song1)
+    @guest2 = Guest.new("Alex", 8, @song2)
+    @guest3 = Guest.new("Craig", 10, @song2)
 
     @club = Club.new(@club_name, @location, @building_structure )
   end

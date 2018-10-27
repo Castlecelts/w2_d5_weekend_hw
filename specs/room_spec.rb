@@ -24,8 +24,8 @@ class TestRoom < MiniTest::Test
     @room_name1 = "90's Pop"
 
     # @playlist1 = [] not needed currently always empty
-    @guest1 = Guest.new("James", 50)
-    @guest2 = Guest.new("Alex", 8)
+    @guest1 = Guest.new("James", 50, @song1)
+    @guest2 = Guest.new("Alex", 8, @song2)
 
     @room1 = Room.new(@room_name1, @capacity, @songlist1)
 
